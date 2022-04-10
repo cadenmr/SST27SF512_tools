@@ -1,6 +1,6 @@
 import os,sys,time,wiringpi
 
-# This script writes a binary to a clean EEPROM.
+# This script writes a 64 kbyte binary to a clean EEPROM.
 # It is recommended to verify the chip has been erased with cleancheck before using this.
 
 # usage: python3 eeprom_burn.py <bin> [optional arguments]
