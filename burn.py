@@ -13,34 +13,34 @@ import os,sys,time,wiringpi
 correct_filesize = 65536
 
 # eeprom pin assignments
-A0  = 0
-A1  = 2
-A2  = 3
-A3  = 12
-A4  = 13
-A5  = 14
-A6  = 30
-A7  = 21
-A8  = 22
-A9  = 23
-A10 = 24
-A11 = 25
-A12 = 29
-A13 = 28
-A14 = 27
-A15 = 26
+A0  = 8
+A1  = 9
+A2  = 7
+A3  = 0
+A4  = 2
+A5  = 3
+A6  = 12
+A7  = 13
+A8  = 14
+A9  = 30
+A10 = 21
+A11 = 22
+A12 = 23
+A13 = 24
+A14 = 25
+A15 = 29
 
-D0  = 31
-D1  = 11
-D2  = 10
-D3  = 6
-D4  = 4
-D5  = 5
-D6  = 1
-D7  = 16
+D0  = 28
+D1  = 27
+D2  = 26
+D3  = 31
+D4  = 11
+D5  = 10
+D6  = 6
+D7  = 5
 
-ce_pin = 8
-oe_pin = 15
+ce_pin = 4
+oe_pin = 1
 
 # wiringpi acronyms
 OUTPUT = 1
@@ -147,6 +147,8 @@ if __name__ == '__main__':
         quit()
 
     addr = 0  # start the address counter at address 0x0000
+    progress = 0
+    last_progress = 0
     while True:  # main flashing loop
 
         data_byte = binfile.read(1)  # pull the next byte
@@ -166,7 +168,10 @@ if __name__ == '__main__':
 
         write_byte(addr_byte_l, data_byte_l)  # write the byte out
 
-        print(f'burning: {round(100*(addr/correct_filesize), 1)}% complete...', end='\r')  # update status
+        progress = round(100*(addr/correct_filesize), 1)
+        if progress > last_progress:
+            print(f'burning: {progress}% complete...', end='\r')  # update status
+            last_progress = progress
 
         addr += 1  # increment address counter
 
