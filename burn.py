@@ -13,34 +13,34 @@ import os,sys,time,wiringpi
 correct_filesize = 65536
 
 # eeprom pin assignments
-A0  = 8
-A1  = 9
-A2  = 7
-A3  = 0
-A4  = 2
-A5  = 3
-A6  = 12
-A7  = 13
-A8  = 14
-A9  = 30
-A10 = 21
-A11 = 22
-A12 = 23
-A13 = 24
-A14 = 25
-A15 = 29
+A0  = 3
+A1  = 2
+A2  = 0
+A3  = 12
+A4  = 13
+A5  = 14
+A6  = 30
+A7  = 21
+A8  = 22
+A9  = 23
+A10 = 24
+A11 = 25
+A12 = 7
+A13 = 9
+A14 = 8
+A15 = 1
 
 D0  = 28
-D1  = 27
-D2  = 26
-D3  = 31
+D1  = 29
+D2  = 27
+D3  = 26
 D4  = 11
-D5  = 10
-D6  = 6
-D7  = 5
+D5  = 31
+D6  = 10
+D7  = 6
 
 ce_pin = 4
-oe_pin = 1
+oe_pin = 5
 
 # wiringpi acronyms
 OUTPUT = 1
